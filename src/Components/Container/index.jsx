@@ -1,16 +1,32 @@
 import React from "react";
-
+import { styled } from "styled-components";
 import Title from "../Title";
 import Account from "../Account";
 
+const StyleContainer = styled.div`
+  background-color: #f1f1f1;
+  min-height: 90vh;
+  padding: 0px 15vw;
+`
+const StyleContent = styled.section`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  @media (max-width: 800px) {
+  flex-direction: column;
+  };
+`
+
+
 const Container = () => {
   return (
-    <div className="container">
+    <StyleContainer className="container">
       <Title>Smart Bank</Title>
-      <section className="content">
+      <StyleContent className="content">
         <Account />
-      </section>
-    </div>
+        <Account />
+      </StyleContent>
+    </StyleContainer>
   );
 };
 
