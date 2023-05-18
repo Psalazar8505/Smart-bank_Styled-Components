@@ -11,22 +11,25 @@ import SwitcherTema from "./Components/SwitcherTema";
 
 
 function App() {  
-  const [tema, setTema] = useState(    
-    localStorage.getItem("theme")    
-  );
+  const [tema, setTema] = useState(true);  
 
-  console.log(tema)
-
-  const setLocalStorage = () =>{
-    localStorage.setItem("theme",tema)
-  }
-  setLocalStorage()  
+  useEffect (() => {
+    let data = localStorage.getItem("theme")
+    
+    if (data) {
+      setTema(JSON.parse(data) )
+    }
+  },[  ])
 
   function toggleTema() {
     setTema((tema) => !tema);
   } 
-  console.log(tema)  
 
+  useEffect (() => {
+    localStorage.setItem("theme", tema)
+    console.log(tema)
+  },[ tema ])
+  
   return (
     <ThemeProvider  theme={ tema ? temaClaro : temaOscuro}>
       <GlobalStyle/>
