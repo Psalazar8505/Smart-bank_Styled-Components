@@ -21,7 +21,6 @@ const Info = styled.div`
 `
 
 export default ({ cargo }) => {
-    console.log(cargo)
     const { id, type, value, from, date } = cargo
     return <Card>
         {ImageFilter(type)}

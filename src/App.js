@@ -10,20 +10,28 @@ import { BtnTema } from "./Components/UI";
 import SwitcherTema from "./Components/SwitcherTema";
 
 
-function App() {
-  const [tema, setTema] = useState('tema');
+function App() {  
+  const [tema, setTema] = useState(    
+    localStorage.getItem("theme")    
+  );
 
-  localStorage.setItem("tema","setTema")
+  console.log(tema)
 
-  const toggleTema = () => {
-    setTema((tema) => !tema)
+  const setLocalStorage = () =>{
+    localStorage.setItem("theme",tema)
   }
+  setLocalStorage()  
+
+  function toggleTema() {
+    setTema((tema) => !tema);
+  } 
+  console.log(tema)  
 
   return (
     <ThemeProvider  theme={ tema ? temaClaro : temaOscuro}>
       <GlobalStyle/>
       <BtnTema onClick={toggleTema}>
-        <SwitcherTema tema={tema}/>
+        <SwitcherTema tema={tema} />
       </BtnTema>
       <Header />
       <Container />

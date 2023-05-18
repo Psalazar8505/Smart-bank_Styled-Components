@@ -3,8 +3,6 @@ import { styled } from "styled-components";
 import logo from "../../assets/images/logo.svg";
 import { colorPrimario } from "../UI/variables";
 
-console.log(colorPrimario)
-
 const StyleHeader = styled.nav`
   background-color: ${colorPrimario};
   display: flex;
